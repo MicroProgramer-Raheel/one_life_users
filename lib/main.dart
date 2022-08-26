@@ -1,20 +1,15 @@
 import 'package:custom_utils/custom_utils.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:one_life_users/helpers/helpers.dart';
-import 'package:one_life_users/views/screens/screen_login.dart';
+import 'package:get/get.dart';
 import 'package:one_life_users/views/screens/screen_user_splash.dart';
 import 'package:one_life_users/widgets/custom_error.dart';
 
 import 'helpers/fcm.dart';
-import 'helpers/helpers.dart';
 /*Created Project "one_life_users" by MicroProgramers - https://microprogramers.org*/
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -52,8 +47,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-
   @override
   void initState() {
     setupInteractedMessage();
@@ -81,23 +74,17 @@ class _MyAppState extends State<MyApp> {
     if (message.data['type'] == 'chat') {}
   }
 
-
   void setupNotificationChannel() async {
     final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
     final settingsAndroid = AndroidInitializationSettings('app_icon');
-    final settingsIOS = IOSInitializationSettings(
-        onDidReceiveLocalNotification: (id, title, body, payload) =>
-        null/*onSelectNotification(payload)*/);
-    await flutterLocalNotificationsPlugin.initialize(InitializationSettings(
-        android: settingsAndroid,
-        iOS: settingsIOS
-    ));
+    final settingsIOS =
+        IOSInitializationSettings(onDidReceiveLocalNotification: (id, title, body, payload) => null /*onSelectNotification(payload)*/);
+    await flutterLocalNotificationsPlugin.initialize(InitializationSettings(android: settingsAndroid, iOS: settingsIOS));
 
     await flutterLocalNotificationsPlugin
         .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
         ?.createNotificationChannel(channel);
-
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       RemoteNotification? notification = message.notification;
