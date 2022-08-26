@@ -68,10 +68,7 @@ class _ScreenUserSplashState extends State<ScreenUserSplash> {
                       text: "Login with email", onPressed: (){
                   },
                     image: Icon(Icons.arrow_forward,color: Colors.white),
-
                   ),
-
-
                 ],
           ))
         ],

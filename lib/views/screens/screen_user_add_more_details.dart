@@ -49,9 +49,7 @@ class _ScreenUserAddMoreDetailsState
         width: Get.width,
         decoration: BoxDecoration(
           color: Color(0xFF1F2240),
-          // image: DecorationImage(
-          //     image: AssetImage("assets/images/img_reg.png")
-          // )
+
         ),
         child: Stack(
           children: [
