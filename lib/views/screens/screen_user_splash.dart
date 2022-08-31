@@ -1,7 +1,10 @@
 import 'package:custom_utils/custom_utils.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:one_life_users/helpers/helpers.dart';
+import 'package:one_life_users/views/screens/screen_user_registration.dart';
 import '../../widgets/asset_icon.dart';
 import '../../widgets/my_button.dart';
 
@@ -69,10 +72,32 @@ class _ScreenUserSplashState extends State<ScreenUserSplash> {
                   },
                     image: Icon(Icons.arrow_forward,color: Colors.white),
                   ),
+                  MyButton(
+                    color: backGroundColorPink,
+                      text: "New  User", onPressed: (){
+                      Get.to(ScreenUserRegistration());
+                  },
+                  ),
+                  Text.rich(TextSpan(
+                      text: "Already a member? ",
+                      children: [
+                        TextSpan(
+                          text: " Connect directly",
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500, color: Colors.white),
+                          recognizer: TapGestureRecognizer()..onTap = () => nextScreen(),
+                        ),
+                      ],
+                      style: normal_h3Style.copyWith(color: Color(0xFF737373),fontWeight: FontWeight.w400))),
+
                 ],
           ))
         ],
       ),
     ));
+  }
+  void nextScreen() {
+    // Get.to(ScreenOrganizerOtpVerification());
   }
 }

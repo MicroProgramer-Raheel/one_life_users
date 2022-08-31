@@ -5,24 +5,26 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:one_life_users/views/screens/screen_user_add_more_details.dart';
 
+import '../../helpers/helpers.dart';
 import '../../widgets/asset_icon.dart';
 import '../../widgets/my_button.dart';
 import '../../widgets/my_input_field.dart';
 
-class ScreenOrganizerRegistration extends StatefulWidget {
-  const ScreenOrganizerRegistration({Key? key}) : super(key: key);
+class ScreenUserRegistration extends StatefulWidget {
+  const ScreenUserRegistration({Key? key}) : super(key: key);
 
   @override
-  _ScreenOrganizerRegistrationState createState() =>
-      _ScreenOrganizerRegistrationState();
+  _ScreenUserRegistrationState createState() =>
+      _ScreenUserRegistrationState();
 }
 
-class _ScreenOrganizerRegistrationState
-    extends State<ScreenOrganizerRegistration> {
+class _ScreenUserRegistrationState
+    extends State<ScreenUserRegistration> {
+  bool isCheck=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF1F2240),
+      backgroundColor: backGroundColorBlueDark,
       body: Container(
         height: Get.height,
         width: Get.width,
@@ -49,12 +51,12 @@ class _ScreenOrganizerRegistrationState
             child: Container(
               padding: EdgeInsets.symmetric(vertical: 15),
               decoration: BoxDecoration(
-                  color: Color(0xFF1F2240),
+                  color: backGroundColorBlueDark,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20))
               ),
               child: SingleChildScrollView(
                 child: Column(children: [
-                  Text("Organizer Registration",style: TextStyle(fontSize: 21,fontWeight: FontWeight.bold,color: Colors.white),),
+                  Text("Join Fenua Xlife",style: TextStyle(fontSize: 21,fontWeight: FontWeight.bold,color: Colors.white),),
                   Padding(
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: Text("Please enter your details to join Fenua Xlife",style: TextStyle(fontSize: 12,fontWeight: FontWeight.normal,color: Color(0xFF999BAC)),)),
@@ -79,10 +81,10 @@ class _ScreenOrganizerRegistrationState
                     ),
                   ),
                   MyInputField(
-                    prefix: Icon(Icons.add_location_sharp     ,color: Colors.white70,size: 21,),
+                    prefix: AssetIcon(path: "assets/svg/svg_user.svg",),
                     showBorder: true,
-                    text: '4/3 Solimullah Road, NYC',
-                    label: "Postal Address",
+                    text: 'XihankhonLi',
+                    label: "Sur Name",
                     textStyle: TextStyle(
                         color: Colors.white
                     ),
@@ -114,6 +116,27 @@ class _ScreenOrganizerRegistrationState
                     textStyle: TextStyle(
                         color: Colors.white
                     ),
+                  ),
+                  CustomCheckboxListTile(
+                    fillColor: Colors.green,
+                    checkColor: backGroundColorBlueLight,
+                    value: isCheck,
+                    onChange: (value){
+                      isCheck=value!;
+                    },
+                    rightCheck: false,
+                    title: RichText(text: TextSpan(
+                        text: "Agree with Fenua Xlife ",
+                        style: TextStyle(color: Colors.white,fontSize: 11,fontWeight: FontWeight.w400),
+                        children: [
+                          TextSpan(
+                            text: "Tearms and Services",
+                            style: TextStyle(color: backGroundColorPink,fontSize: 11,fontWeight: FontWeight.w700),
+
+                          ),
+
+                        ]
+                    ),),
                   ),
                   MyButton(
                     color: Color(0xFFFF88B6),

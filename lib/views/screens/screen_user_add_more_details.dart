@@ -7,6 +7,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:get/get.dart';
+import 'package:one_life_users/views/screens/screen_user_home_page.dart';
 
 import '../../helpers/helpers.dart' as datetime;
 import '../../widgets/asset_icon.dart';
@@ -335,18 +336,19 @@ class _ScreenUserAddMoreDetailsState
 
                           MyButton(
                               color: Color(0xFFFF88B6),
-                              image: Icon(
-                                Icons.arrow_forward,
-                                size: 24,
-                                color: Colors.white,
-                              ),
+                              // image: Icon(
+                              //   Icons.arrow_forward,
+                              //   size: 24,
+                              //   color: Colors.white,
+                              // ),
                               icon: Text(
-                                "Submit Request",
+                                "",
                                 style: TextStyle(
                                     fontSize: 15, fontWeight: FontWeight.w500),
                               ),
-                              text: "",
+                              text: "Finish",
                               onPressed: () {
+                                Get.to(ScreenUserHomePage());
                               }),
                           Text.rich(TextSpan(
                               text: "Already a member? ",

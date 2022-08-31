@@ -5,13 +5,24 @@ import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/platform/platform.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+String googleAPIKey = "AIzaSyB2tfPVP5CVeqDZAtuMjzE_tz0K62Gb_LY";
 
 Color border=Color(0xFF9F33FC);
 Color buttonColorPink=Color(0xFFE9ACC2);
 Color backGroundColorBlueLight=Color(0xFF343454);
 Color backGroundColorBlue=Color(0xFF1F223F);
+Color backGroundColorBlueDark=Color(0xFF0A0E37);
 Color backGroundColorPink=Color(0xFFFF88B6);
 Color bg2Color=Color(0xFF3C3C63);
+List<String> allEventTags = [
+  "Dancing",
+  "Travelling",
+  "Drinking",
+  "Flying",
+  "Eating",
+  "Claiming",
+];
+
 var dbInstance = FirebaseFirestore.instance;
 CollectionReference usersRef = dbInstance.collection("users");
 CollectionReference postsRef = dbInstance.collection("posts");

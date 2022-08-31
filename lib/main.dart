@@ -53,7 +53,6 @@ class _MyAppState extends State<MyApp> {
     setupNotificationChannel();
     super.initState();
   }
-
   Future<void> setupInteractedMessage() async {
     // Get any messages which caused the application to open from
     // a terminated state.
@@ -69,11 +68,9 @@ class _MyAppState extends State<MyApp> {
     // Stream listener
     FirebaseMessaging.onMessageOpenedApp.listen(_handleMessage);
   }
-
   void _handleMessage(RemoteMessage message) {
     if (message.data['type'] == 'chat') {}
   }
-
   void setupNotificationChannel() async {
     final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 

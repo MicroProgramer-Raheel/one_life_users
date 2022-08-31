@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:custom_utils/custom_utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:one_life_users/helpers/helpers.dart';
 import 'package:sizer/sizer.dart';
 
 class MyInputField extends StatefulWidget {
@@ -107,8 +108,10 @@ class _MyInputFieldState extends State<MyInputField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: widget.margin ?? EdgeInsets.symmetric(vertical: 15.0, horizontal: 10),
-      decoration: BoxDecoration(boxShadow: appBoxShadow,color: Color(0xFF1F2240) ),
+      margin:
+          widget.margin ?? EdgeInsets.symmetric(vertical: 15.0, horizontal: 10),
+      decoration: BoxDecoration(
+          boxShadow: appBoxShadow, color: backGroundColorBlueDark),
       child: TextFormField(
         maxLength: widget.limit,
         key: widget.key,
@@ -142,31 +145,33 @@ class _MyInputFieldState extends State<MyInputField> {
         focusNode: widget.focusNode,
         enabled: widget.keyboardType != TextInputType.none,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        buildCounter: widget.showCounter == true ? (_, {required currentLength, maxLength, required isFocused}) {
-          return Padding(
-            padding: EdgeInsets.only(left: 16.0),
-            child: Container(
-              alignment: Alignment.centerRight,
-              child: Text(
-                currentLength.toString() + (widget.limit != null ? "/" + maxLength.toString() : ""),
-                style: TextStyle(color: widget.counterColor),
-              ),
-            ),
-          );
-        } : null,
+        buildCounter: widget.showCounter == true
+            ? (_, {required currentLength, maxLength, required isFocused}) {
+                return Padding(
+                  padding: EdgeInsets.only(left: 16.0),
+                  child: Container(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      currentLength.toString() +
+                          (widget.limit != null
+                              ? "/" + maxLength.toString()
+                              : ""),
+                      style: TextStyle(color: widget.counterColor),
+                    ),
+                  ),
+                );
+              }
+            : null,
         decoration: InputDecoration(
             prefixIcon: widget.prefix,
             prefix: widget.preffix,
             prefixIconConstraints: BoxConstraints(minWidth: 50.sp),
             hintText: widget.hint,
-            labelStyle: TextStyle(
-              color: Colors.white
-            ),
+            labelStyle: TextStyle(color: Colors.white),
             labelText: widget.label,
-
             isDense: widget.isDense,
             fillColor: widget.fillColor ?? /*Color(0xFFECECEC)*/
-                 Color(0xFF1F2240),
+                backGroundColorBlueDark,
             filled: true,
             suffixIconConstraints: BoxConstraints(minWidth: 50.sp),
             suffixIcon: widget.suffix ??
@@ -184,30 +189,42 @@ class _MyInputFieldState extends State<MyInputField> {
                         icon: Visibility(
                           visible: isPasswordField,
                           child: Icon(
-                            isPasswordField ? (_isHidden ? Icons.visibility : Icons.visibility_off) : null,color: Colors.white,
+                            isPasswordField
+                                ? (_isHidden
+                                    ? Icons.visibility
+                                    : Icons.visibility_off)
+                                : null,
+                            color: Colors.white,
                           ),
                         ),
                       )
-                    : (widget.asyncValidator != null ? _getSuffixIcon() : null)),
+                    : (widget.asyncValidator != null
+                        ? _getSuffixIcon()
+                        : null)),
             hintStyle: TextStyle(color: Colors.white),
-            contentPadding: EdgeInsets.only(left: 15, right: 10,top: 20),
+            contentPadding: EdgeInsets.only(left: 15, right: 10, top: 20),
             border: (widget.showBorder != null && widget.showBorder == false)
                 ? InputBorder.none
                 : OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(5.0)),
                   ),
-            enabledBorder: (widget.showBorder != null && widget.showBorder == false)
-                ? InputBorder.none
-                : OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black, width: 1.0),
-                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                  ),
-            focusedBorder: (widget.showBorder != null && widget.showBorder == false)
-                ? InputBorder.none
-                : OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black, width: 1.0),
-                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                  )
+            enabledBorder:
+                (widget.showBorder != null && widget.showBorder == false)
+                    ? InputBorder.none
+                    : OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: backGroundColorBlue,
+                            width: 1.0),
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      ),
+            focusedBorder:
+                (widget.showBorder != null && widget.showBorder == false)
+                    ? InputBorder.none
+                    : OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: backGroundColorBlue, width: 1.0),
+                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      )
             // filled: true,
             // fillColor: Color(0xF0BBBBBB),
             ),

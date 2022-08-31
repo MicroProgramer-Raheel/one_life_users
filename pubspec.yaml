@@ -37,6 +37,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
+
   get: ^4.6.5
   custom_utils: ^0.0.26
   auto_size_text: ^3.0.0
@@ -65,7 +66,13 @@ dependencies:
   qr_code_scanner: ^1.0.1
   permission_handler:
   pinput: ^2.2.12
-
+  card_swiper: ^2.0.4
+  google_maps_flutter: any
+  map_launcher: ^2.2.1+2
+    #  geolocator: ^8.2.0
+  location: any
+  qr_flutter: ^4.0.0
+  flutter_chat_ui: ^1.6.4
 
 dev_dependencies:
   flutter_test:
@@ -96,6 +103,7 @@ flutter:
   assets:
     - assets/fonts/
     - assets/images/
+    - assets/svg/
 
   fonts:
     - family: SegeoUi
