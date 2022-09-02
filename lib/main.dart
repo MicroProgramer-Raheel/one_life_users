@@ -126,7 +126,7 @@ class _MyAppState extends State<MyApp> {
           debugShowCheckedModeBanner: false,
           title: "One Life Users",
           theme: ThemeData(
-            fontFamily: 'SegeoUi',
+            fontFamily: 'LibreFranklin',
             primarySwatch: appPrimaryColor,
             checkboxTheme: CheckboxThemeData(
               checkColor: MaterialStateProperty.all(Colors.white),

@@ -1,5 +1,8 @@
 import 'package:custom_utils/custom_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:one_life_users/views/screens/screen_user_chat.dart';
 
 import '../../helpers/helpers.dart';
 
@@ -10,6 +13,9 @@ class ItemUserChatUsersList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: ListTile(
+        onTap: (){
+          Get.to(ScreenUserChat());
+        },
         leading: CircleAvatar(
           child: Image.asset("assets/images/avatar (0).png"),
 
